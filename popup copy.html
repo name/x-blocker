@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Popup</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #bbb;
+        }
+    </style>
+</head>
+
+<body class="text-sm text-gray-700">
+    <div class="divide-y" style="min-width: 300px">
+        <div class="flex justify-center items-center flex-col py-2 px-4 gap-1">
+            <h1 id="blockedCount" class="text-3xl font-semibold">0</h1>
+            <p class="text-sm">Bot Accounts Blocked</p>
+        </div>
+
+        <div class="p-2 px-4">
+            <p class="uppercase text-gray-400">Config</p>
+            <div class="flex items-center gap-2 mt-2">
+                <input id="isActive" type="checkbox"
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-lg" />
+                <label for="isActive" class="ms-2 text-sm font-medium text-gray-900">Extension Active</label>
+            </div>
+        </div>
+
+        <div id="childConfig" class="divide-y">
+            <div class="form-group flex flex-col">
+                <p class="uppercase text-gray-400 p-4 py-2">Detected Accounts</p>
+                <div id="keywordContainer" class="flex flex-col gap-2 bg-gray-100 p-2 h-48 overflow-y-auto"></div>
+                <form id="newKeywordForm" class="flex gap-2 justify-between p-4">
+                    <input type="text" class="p-2 border border-2 outline-none rounded-lg w-full" name="keyword"
+                        placeholder="Account exclusion" />
+                    <button type="submit" class="bg-blue-400 p-1 px-2 rounded-lg text-white w-fit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./popup.js"></script>
+</body>
+
+</html>
